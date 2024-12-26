@@ -1,0 +1,11 @@
+pandas
+torch
+numpy
+seaborn 
+flask
+mlflow
+ipykernel
+nltk
+scikit-learn
+
+-e .

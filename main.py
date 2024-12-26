@@ -25,3 +25,5 @@ model_trainer = ModelTrainer(model, xtrain_tensor,
                              ytest_tensor_
                             )
 model_trainer.fit_trainer()
+
+model_trainer.fit_evaluation()

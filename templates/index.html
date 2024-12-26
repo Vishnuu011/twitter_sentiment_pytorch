@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Sentiment Classifier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #ffffff;
+        }
+        .form-label {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .form-control {
+            background-color: #2b2b2b;
+            color: #ffffff;
+            border: 1px solid #444;
+        }
+        .form-control::placeholder {
+            color: #bbbbbb;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .alert {
+            margin-top: 20px;
+            background-color: #2b2b2b;
+            color: #ffffff;
+            border: 1px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Twitter Sentiment Classification</h1>
+        <form action="{{url_for('classify')}}" method="POST">
+            <div class="mb-3">
+                <label for="tweet" class="form-label">Enter Tweet Text:</label>
+                <textarea class="form-control" id="tweet" name="tweet" rows="4" placeholder="Type a tweet here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Classify Sentiment</button>
+        </form>
+          <div class="alert text-center" role="alert">
+            {% if sentiment %}
+                <p>Predicted Sentiment: <strong>{{ sentiment }}</strong></p>
+            {% else %}
+                <p>No sentiment predicted yet. Please enter a tweet.</p>
+            {% endif %}
+          </div>
+    </div>
+</body>
+</html>
